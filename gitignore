@@ -1,0 +1,18 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+
+# Environment / secrets
+.env
+*.tfvars
+!terraform.tfvars.example
+
+# Terraform (in case you extend this project with IaC later)
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
