@@ -1,4 +1,4 @@
-# Static Website Hosting on Azure Blob Storage
+# Hosting a Static Website with Azure Blob Storage
  
 Status: 🚧 In progress. `<update this line to "✅ Built and deployed" once you've finished and verified it>`
  
