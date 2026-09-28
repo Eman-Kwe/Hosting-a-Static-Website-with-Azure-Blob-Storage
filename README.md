@@ -4,7 +4,7 @@ Status: 🚧 In progress. `<update this line to "✅ Built and deployed" once yo
  
 ## 🎬 Video Walkthrough
  
-[Watch the walkthrough](<add your Loom link here>)
+[Watch the walkthrough](<https://www.loom.com/share/d09efecbdb6c4f0a84bf8d07fc9d7819>)
  
 ## Project Overview
  
