@@ -1,7 +1,5 @@
 # Hosting a Static Website with Azure Blob Storage
  
-Status: 🚧 In progress. `<update this line to "✅ Built and deployed" once you've finished and verified it>`
- 
 ## 🎬 Video Walkthrough
  
 [Watch the walkthrough](<https://www.loom.com/share/d09efecbdb6c4f0a84bf8d07fc9d7819>)
