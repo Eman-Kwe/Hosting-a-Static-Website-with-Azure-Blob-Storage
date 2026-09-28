@@ -103,6 +103,8 @@ Deployed endpoint: `<https://stlab01kweku.z13.web.core.windows.net/>`
 
 <img width="321" height="218" alt="Screenshot 2026-09-27 192656" src="https://github.com/user-attachments/assets/bb37a633-954f-4fc9-bc96-7a2af8e2ec09" />
 
+Note: I set the error document path to `404.html` but did not upload that file to `$web` during this run, so the custom error page was never tested. The file is included in this repo for the next deployment.
+ 
 ## Troubleshooting
 Everything below actually happened during this build
 
