@@ -83,31 +83,43 @@ Under *Data management*, enable static website hosting.
 **Step 4: Create the Website File**
  
 Write a simple `index.html` locally.
- 
+
 **Step 5: Upload the File**
  
 Upload `index.html` to the `$web` container that Azure auto-creates when you enable static hosting. Uploading it anywhere else silently breaks the site.
- 
+
+<img width="946" height="206" alt="Screenshot 2026-09-27 192341" src="https://github.com/user-attachments/assets/3d4555f9-aa06-4bca-a608-aee762a12b9f" />
+
+
 **Step 6: Validate**
  
 Open the primary endpoint URL in a browser. Confirm the page loads.
  
 Full step-by-step instructions with exact portal navigation are in the [lab doc](./Lab-01-Static-Website-Azure.md).
- 
+
 ## Result
  
-Deployed endpoint: `<add your primary endpoint URL here>`
- 
-Screenshot: `<add a screenshot of the live page if you have one>`
- 
+Deployed endpoint: `<https://stlab01kweku.z13.web.core.windows.net/>`
+
+<img width="321" height="218" alt="Screenshot 2026-09-27 192656" src="https://github.com/user-attachments/assets/bb37a633-954f-4fc9-bc96-7a2af8e2ec09" />
+
 ## Troubleshooting
- 
-| Symptom | Cause |
-|---|---|
-| 404 on the endpoint | File not named exactly `index.html`, or uploaded to the wrong container |
-| "Storage account name is already taken" | Name collides globally, append digits |
-| Endpoint loads but shows old content | Browser cache. Hard refresh or use a private window |
- 
+Everything below actually happened during this build
+
+| Symptom | Cause | Solution |
+|---|---|---|
+| Portal storage account creation failed with "Validation failed. Required information is missing or not valid." | The **Primary service** dropdown under Basics was left blank | Go back to the Basics tab, set Primary service to "Azure Blob Storage or Azure Data Lake Storage Gen 2," then retry |
+| Portal upload showed only `index.html: error` with no detail | The portal hides the real reason behind a vague message | Switched to Azure CLI, which prints the actual error instead of a generic banner |
+| `az: command not found` in PowerShell | Azure CLI wasn't installed yet | Installed the CLI, then closed and reopened the terminal so it picked up the updated PATH |
+| `--account-name: command not found` in a WSL terminal | Backtick line continuation (`` ` ``) only works in PowerShell. This was actually a bash shell, which needs a backslash (`\`) | Rewrote the command with bash syntax and a Linux-style path (`/mnt/c/...`) |
+| `az login` couldn't open a browser inside WSL | WSL has no GUI browser installed | Used `az login --use-device-code` and completed sign-in in a Windows browser |
+| `[Errno 2] No such file or directory` on upload | Guessed the file's path (Desktop) instead of checking it | Used `find` to search Desktop/Downloads/Documents and located the real path in Downloads |
+| "You do not have the required permissions" on upload, in both the portal and the CLI | Being the resource group's owner doesn't automatically grant data-plane access to the blobs inside a storage account, that's a separate RBAC role | Assigned myself `Storage Blob Data Contributor`, scoped to the storage account, and waited ~60 seconds for it to propagate before retrying |
+| 404 on the live endpoint | File not named exactly `index.html`, or uploaded to a container other than `$web` | Confirm the filename casing and the container match exactly |
+| "Storage account name is already taken" | Storage account names are unique across all of Azure, not just one subscription | Append digits to the name and retry |
+
+
+
 ##  Cleanup
  
 Delete the resource group when you're done. It takes the storage account with it and stops any lingering charges.
@@ -115,7 +127,9 @@ Delete the resource group when you're done. It takes the storage account with it
 ```
 Resource Groups → rg-lab01-<yourname> → Delete resource group
 ```
- 
+<img width="658" height="437" alt="Screenshot 2026-09-27 193259" src="https://github.com/user-attachments/assets/17ba5701-28b5-41d9-821e-e1bccdaa7fd6" />
+<img width="618" height="417" alt="Screenshot 2026-09-27 193455" src="https://github.com/user-attachments/assets/67ef1758-b4d3-415a-89b8-c6005780d8cb" />
+
 ##  Key Takeaways
  
 **PaaS means the provider owns the infrastructure, not just the hardware.** There's no server to patch or process to keep running here. Azure Blob Storage handles the request/response cycle for the site directly.
