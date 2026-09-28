@@ -144,6 +144,12 @@ Resource Groups → rg-lab01-<yourname> → Delete resource group
  
 ---
  
-**Author**: **Manuel Yannick Armah** | Project: Static Website Hosting on Azure Blob Storage | Difficulty: Beginner | Time to Complete: ~30 minutes
+**Author**: **Manuel Yannick Armah** 
+
+**Project**: Static Website Hosting on Azure Blob Storage 
+
+**Difficulty**: Beginner 
+
+**Time to Complete**: 30 minutes
  
  
