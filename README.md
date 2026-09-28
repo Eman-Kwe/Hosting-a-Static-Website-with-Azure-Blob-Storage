@@ -59,19 +59,27 @@ Storage account names must be globally unique, lowercase, and alphanumeric only.
 ## Project Steps
  
 **Step 1: Create the Resource Group**
- 
 In the Azure Portal, create a resource group named `rg-lab01-<yourname>` in your chosen region.
+
+<img width="1271" height="609" alt="Screenshot 2026-09-27 183124" src="https://github.com/user-attachments/assets/da7de454-2eef-49e8-b92f-3b018719ceaa" />
+<img width="1210" height="639" alt="Screenshot 2026-09-27 183211" src="https://github.com/user-attachments/assets/ba2db125-6f73-4ed6-9c33-ce8329c7e1dc" />
+<img width="453" height="645" alt="Screenshot 2026-09-27 183251" src="https://github.com/user-attachments/assets/5bbb448a-8476-444f-a8b3-6e2a5f1ac228" />
  
 **Step 2: Create the Storage Account**
- 
 Create a storage account inside that resource group.
 - Redundancy: LRS is fine for a lab. It's the cheapest tier and doesn't need geo-replication for this use case.
+<img width="443" height="409" alt="Screenshot 2026-09-27 183518" src="https://github.com/user-attachments/assets/36aee58d-a774-4f08-95b7-8bcc5e8e173f" />
+<img width="560" height="436" alt="Screenshot 2026-09-27 183821" src="https://github.com/user-attachments/assets/afbd8380-b635-4c18-bd79-a0015df1f988" />
+<img width="788" height="292" alt="Screenshot 2026-09-27 183929" src="https://github.com/user-attachments/assets/87708556-eb78-4af5-a709-0754c3e9fe28" />
+
 **Step 3: Enable Static Website Hosting**
- 
 Under *Data management*, enable static website hosting.
 - Set the index document to `index.html`.
 - Set an error document (`404.html`). Not required, but it avoids a raw XML error page if someone hits a bad URL.
 - Azure generates a **primary endpoint URL** once you save. That's your live site address. Copy it.
+[index.html](https://github.com/user-attachments/files/32713301/index.html)
+
+
 **Step 4: Create the Website File**
  
 Write a simple `index.html` locally.
